@@ -17,7 +17,7 @@ RUN chmod +x /startapp.sh && \
 
 # Generate and install favicons.
 RUN \
-    APP_ICON_URL=https://github.com/NordicESMhub/docker-panoply/raw/master/panoply-app-icon.png && \
+    APP_ICON_URL=https://github.com/bgruening/docker-odv/raw/main/odv_logo.png && \
     install_app_icon.sh "$APP_ICON_URL"
 
 # Set the name of the application.
