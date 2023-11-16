@@ -6,6 +6,7 @@ RUN apt-get update -y && \
      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
          ca-certificates \
          wget \
+         unzip \
          libgl1 \
          qt5dxcb-plugin && \
      rm -rf /var/lib/apt/lists/*
