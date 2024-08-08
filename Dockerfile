@@ -35,8 +35,8 @@ ENV JAVA_HOME /opt/jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
 WORKDIR /app/odv
-RUN wget https://usegalaxy.eu/static/share/odv_5.6.5_linux-amd64.tar.gz && \
-    tar -xf odv_5.6.5_linux-amd64.tar.gz && \
-    rm odv_5.6.5_linux-amd64.tar.gz
+RUN wget https://usegalaxy.eu/static/share/odv_5.7.2_linux-amd64.tar.gz && \
+    tar -xf odv_5.7.2_linux-amd64.tar.gz && \
+    rm odv_5.7.2_linux-amd64.tar.gz
 
 WORKDIR /config
