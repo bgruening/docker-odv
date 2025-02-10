@@ -4,15 +4,13 @@ FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS build
 # Maintainer information
 MAINTAINER Bjoern Gruening, bjoern.gruening@gmail.com
 
-# Install necessary dependencies including Xvfb for virtual display
 RUN apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
         wget \
         unzip \
         libgl1 \
-        qt5dxcb-plugin \
-        xvfb && \
+        qt5dxcb-plugin &&\
     rm -rf /var/lib/apt/lists/*
 
 # Define working directory
@@ -44,8 +42,6 @@ ENV ODVHOME=/app/odv
 ENV JAVA_HOME=/opt/jdk
 ENV PATH=${PATH}:${JAVA_HOME}/bin
 
-# Set environment variable for Xvfb (virtual display)
-ENV DISPLAY=:99
 
 # Ensure LD_LIBRARY_PATH is set
 ENV LD_LIBRARY_PATH=${ODVHOME}/bin_linux-amd64:$LD_LIBRARY_PATH
@@ -57,5 +53,5 @@ RUN chmod +x /etc/services.d/app/run
 # Define working directory for config
 WORKDIR /config
 
-# Set entrypoint to start Xvfb and the application
-CMD ["xvfb-run", "--auto-servernum", "/startapp.sh"]
+# Set entrypoint to start the application
+CMD ["/startapp.sh"]
