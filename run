@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -x /startapp.sh ]; then
+    echo "starting application... (  /startapp.sh "$@" )"
+    # Start the application.
+    exec /startapp.sh "$@"
+else
+    echo "/!\\ No application to start: /startapp.sh is missing or not executable. /!\\"
+    # Make sure the container exits with an error code.
+    exit 5
+fi
+
