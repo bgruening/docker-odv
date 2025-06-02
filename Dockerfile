@@ -9,6 +9,7 @@ RUN apt-get update -y && \
         ca-certificates \
         wget \
         unzip \
+        zip \
         libgl1 \
         qt5dxcb-plugin &&\
     rm -rf /var/lib/apt/lists/*
