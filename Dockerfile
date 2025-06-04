@@ -18,9 +18,9 @@ RUN apt-get update -y && \
 WORKDIR /app/odv
 
 # Download and extract ODV
-RUN wget https://usegalaxy.eu/static/share/odv_5.8.2_linux-amd64.tar.gz && \
-    tar -xf odv_5.8.2_linux-amd64.tar.gz && \
-    rm odv_5.8.2_linux-amd64.tar.gz
+RUN wget https://usegalaxy.eu/static/share/odv_5.8.0_linux-amd64.tar.gz && \
+    tar -xf odv_5.8.0_linux-amd64.tar.gz && \
+    rm odv_5.8.0_linux-amd64.tar.gz
 
 # Copy the start script and ensure it is executable
 COPY startapp.sh /startapp.sh
