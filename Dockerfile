@@ -1,5 +1,5 @@
 # Use a base image that supports GUI applications
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS build
+FROM jlesage/baseimage-gui:ubuntu-24.04-v4 AS build
 
 # Maintainer information
 MAINTAINER Bjoern Gruening, bjoern.gruening@gmail.com
@@ -10,7 +10,7 @@ RUN apt-get update -y && \
         wget \
         unzip \
         zip \
-        libgl1 \
+        coreutils \
         qt5dxcb-plugin &&\
     rm -rf /var/lib/apt/lists/*
 
@@ -18,9 +18,12 @@ RUN apt-get update -y && \
 WORKDIR /app/odv
 
 # Download and extract ODV
-RUN wget https://usegalaxy.eu/static/share/odv_5.8.0_linux-amd64.tar.gz && \
-    tar -xf odv_5.8.0_linux-amd64.tar.gz && \
-    rm odv_5.8.0_linux-amd64.tar.gz
+RUN wget https://usegalaxy.eu/static/share/odv_5.8.2_linux-amd64.tar.gz && \
+    tar -xf odv_5.8.2_linux-amd64.tar.gz && \
+    rm odv_5.8.2_linux-amd64.tar.gz
+
+RUN rm -f /app/odv/bin_linux-amd64/libexpat.so*
+RUN apt-get update && apt-get install -y libexpat1
 
 # Copy the start script and ensure it is executable
 COPY startapp.sh /startapp.sh
