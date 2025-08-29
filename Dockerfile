@@ -21,7 +21,8 @@ WORKDIR /app/odv
 # Download and extract ODV
 RUN wget https://usegalaxy.eu/static/share/odv_5.8.2_linux-amd64.tar.gz && \
     tar -xf odv_5.8.2_linux-amd64.tar.gz && \
-    rm odv_5.8.2_linux-amd64.tar.gz
+    rm odv_5.8.2_linux-amd64.tar.gz && \
+    rm -f /app/odv/bin_linux-amd64/libexpat.so*
 
 RUN rm -f /app/odv/bin_linux-amd64/libexpat.so*
 RUN apt-get update && apt-get install -y libexpat1
