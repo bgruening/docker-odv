@@ -11,6 +11,7 @@ RUN apt-get update -y && \
         unzip \
         zip \
         coreutils \
+        libexpat1 \
         qt5dxcb-plugin &&\
     rm -rf /var/lib/apt/lists/*
 
