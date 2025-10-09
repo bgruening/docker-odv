@@ -1,5 +1,5 @@
 # Use a base image that supports GUI applications
-FROM jlesage/baseimage-gui:ubuntu-24.04-v4 AS build
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4 AS build
 
 # Maintainer information
 MAINTAINER Bjoern Gruening, bjoern.gruening@gmail.com
